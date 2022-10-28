@@ -1,7 +1,6 @@
 /***
- * Template to a Kattis solution.
- * See: https://open.kattis.com/help/c
- * Author: Viola Söderlund <violaso@kth.se>
+ * Based on: Template to a Kattis solution. by Viola Söderlund <violaso@kth.se>
+ * Author: Vilhelm Prytz <vilhelm@prytznet.se> / <vprytz@kth.se>
  */
 
 #include <stdio.h> // standard input/output library
@@ -9,8 +8,7 @@
 /// Kattis calls main function to run your solution
 int main()
 {
-    int x;
-    float y;
+    int n;
     char text[15];
 
     /**
@@ -24,23 +22,42 @@ int main()
      *
      * see: https://www.dummies.com/programming/c/basics-of-the-scanf-function-in-c-programming/
      */
-    scanf("%d", &x); // parse input as integer
+    scanf("%d", &n); // parse input as integer
 
-    // Equal to `scanf("%d %f", &x, &y);`.
-    scanf("%d%f", &x, &y); // parse input as an integer followed by a floating point value
+    char firstnames[n][20];
+    char lastnames[n][20];
 
-    // Reads as many characters as the string can hold. And yes, character arrays are the strings of C.
-    scanf("%s", text); // parse input as a character array (string)
+    // read n*2 lines of input, first n firstnames then n lastnames
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%s", firstnames[i]);
+    }
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%s", lastnames[i]);
+    }
 
-    /**
-     * fprintf writes to specified stream, in this case to standard error output.
-     *
-     * see: https://www.tutorialspoint.com/c_standard_library/c_function_fprintf.htm
-     */
-    fprintf(stderr, "%d\n", x); // Kattis does not read this
+    // create a list of full names
+    char fullnames[n][41];
+    for (int i = 0; i < n; i++)
+    {
+        sprintf(fullnames[i], "%s %s", firstnames[i], lastnames[i]);
+    }
 
-    /**
-     * Print to standard output. Don't forget to add a line break when needed.
-     */
-    printf("%d\n", x); // Kattis does read this
+    int unique = 0;
+
+    // get unique elements in array
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            // printf("%s %s", fullnames[i], fullnames[j]);
+            if (fullnames[i] == fullnames[j])
+            {
+                unique = +1;
+            }
+        }
+    }
+
+    printf("%d\n", unique); // Kattis does read this
 }
