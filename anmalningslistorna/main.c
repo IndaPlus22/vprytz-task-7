@@ -4,6 +4,7 @@
  */
 
 #include <stdio.h> // standard input/output library
+#include <string.h>
 
 /// Kattis calls main function to run your solution
 int main()
@@ -44,18 +45,26 @@ int main()
         sprintf(fullnames[i], "%s %s", firstnames[i], lastnames[i]);
     }
 
-    int unique = 0;
-
-    // get unique elements in array
+    // remove all duplicate elements in array fullnames (chars)
     for (int i = 0; i < n; i++)
     {
         for (int j = i + 1; j < n; j++)
         {
-            // printf("%s %s", fullnames[i], fullnames[j]);
-            if (fullnames[i] == fullnames[j])
+            if (strcmp(fullnames[i], fullnames[j]) == 0)
             {
-                unique = +1;
+                strcpy(fullnames[j], "");
             }
+        }
+    }
+
+    int unique = 0;
+
+    // increase unique counter for each unique element in array fullnames
+    for (int i = 0; i < n; i++)
+    {
+        if (strcmp(fullnames[i], "") != 0)
+        {
+            unique++;
         }
     }
 
