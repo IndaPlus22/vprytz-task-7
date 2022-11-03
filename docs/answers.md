@@ -69,4 +69,4 @@ Know the answer of the following question:
 
 - _What is printed?_
 
-**Answer**: First it will print `Nothing: 0`, since the integer `x` is `0` by defult (initial value when just init variable). Then the program will ask you to input another integer, and it should then print it. But it looks like there is an error in the above code, since `scanf` should take the pointer as argument, not the variable itself. So it should be `scanf("%d", &x);`.
+**Answer**: First it will print `Nothing: 0`, since the integer `x` is `0` by defult (initial value when just init variable). Then the program will ask you to input another integer, and it should then print it. But it looks like there is an error in the above code, since `scanf` should take the pointer as argument, not the variable itself. So it should be `scanf("%d", &x);`. Correcting the code makes it run as intended.
