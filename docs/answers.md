@@ -19,6 +19,12 @@ Know the answer of the following question:
 
 **Answer**:
 
+- Line 1: Allocate integer variable with value 0.
+- Line 2: Read input from `stdin` to variable `length`
+- Line 3: Allocate pointer to a variable with datatype `int` named `vector`. It will be the size of int multiplied by the `length` (number of int pointers it can contain). Basically a vector with room for `length` number of ints.
+- Line 4-5: Iterate from 0 to length-1 and read input from `stdin` to `vector[i]` (basically assign values for all elements in vector).
+- Line 5: Free the previously allocated memory for variable `vector`.
+
 ## Gammal hederlig läsförståelse
 
 Observe the following function:
