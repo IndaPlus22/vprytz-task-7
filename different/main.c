@@ -1,15 +1,18 @@
 /***
- * Based on: Template to a Kattis solution. by Viola Söderlund <violaso@kth.se>
  * Author: Vilhelm Prytz <vilhelm@prytznet.se> / <vprytz@kth.se>
  */
 
-#include <stdio.h> // standard input/output library
+#include <stdio.h>
+#include <stdlib.h>
 
-/// Kattis calls main function to run your solution
 int main()
 {
-    int x;
-    int y;
+    signed long int x, y;
 
-    scanf("%d %d", &x, &y); // parse input as integer
+    // get input until EOF
+    while (scanf("%lu %lu", &x, &y) != EOF)
+    {
+        // abs is only int,
+        printf("%lu\n", labs(x - y));
+    }
 }
